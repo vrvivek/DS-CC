@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <div align="center">
+        <f:view>
+            <h:form>
+                <h1><h:outputText value="Edit"/></h1>
+                <h:inputHidden id="productid" value="#{productBean.p.productid}" />
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Pname:" for="pname" />
+                    <h:inputText id="pname" value="#{productBean.p.pname}" title="Pname" required="true" requiredMessage="The Pname field is required."/>
+                    <h:outputLabel value="Price:" for="price" />
+                    <h:inputText id="price" value="#{productBean.p.price}" title="Price" required="true" requiredMessage="The Price field is required."/>
+                    <h:outputLabel value="Description:" for="description" />
+                    <h:inputText id="description" value="#{productBean.p.description}" title="Description" required="true" requiredMessage="The Description field is required."/>
+                    <h:outputLabel value="Category: #{productBean.cid}" for="categoryid" />
+                    <h:selectOneMenu id="categoryid" value="#{productBean.p.categoryid.categoryid}" title="Categoryid" required="true" requiredMessage="The Categoryid field is required.">
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{categoryBean.categorys}" var="c" itemLabel="#{ c.categoryname }" itemValue="#{c.categoryid}"/>
+                    </h:selectOneMenu>
+                    <h:commandButton action="#{productBean.editProduct()}" value="Edit"/>
+                </h:panelGrid>
+            </h:form>
+        </f:view>
+        </div>
+        <div align="center" style="padding-top: 10px">
+            <span class="msg" ><h:outputText value="#{productBean.message}"/></span>
+            <c:if test="#{ productBean.message ne null}">
+                <h:form>
+                    <h:commandButton action="#{productBean.clearMessage()}" value="Clear Message"/>
+                </h:form>
+            </c:if>
+        </div>
+    </h:body>
+</html>
+

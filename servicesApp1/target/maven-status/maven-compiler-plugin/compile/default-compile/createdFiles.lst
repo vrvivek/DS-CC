@@ -1,0 +1,7 @@
+com\mycompany\mavenproject1\config\CrossOriginResourceSharingFilter.class
+com\mycompany\mavenproject1\config\Producers.class
+com\mycompany\mavenproject1\service\ExampleService.class
+com\mycompany\mavenproject1\config\BootStrap.class
+com\mycompany\mavenproject1\entity\CustomerMaster_.class
+com\mycompany\mavenproject1\entity\CustomerMaster.class
+com\mycompany\mavenproject1\service\HealthCheckService.class

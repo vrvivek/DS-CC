@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title> Title</title>
+    </h:head>
+    <h:body>
+        <div style="float:left">
+            <a href="/clientApp1/admin/product.jsf">Product</a>
+        </div>
+        <div style="float:right">
+            <h:form>
+                <h:commandLink action="#{loginRegisterBean.logout()}" value="Logout"/>
+            </h:form>
+        </div>
+        <div style="clear:both;" align="center">
+            <h:form>
+                <h1><h:outputText value="List"/></h1>
+                <h:dataTable value="#{categoryBean.categorys}" var="item" border="2">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Categoryid"/>
+                        </f:facet>
+                        <h:outputText value="#{item.categoryid}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Categoryname"/>
+                        </f:facet>
+                        <h:outputText value="#{item.categoryname}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Delete</f:facet>
+                        <h:commandLink action="#{categoryBean.deleteCategory(item.categoryid)}" value="Delete"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Update</f:facet>
+                        <h:commandLink action="#{categoryBean.updateCategory(item)}" value="Update"/>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </div>
+        <div align="center" style="padding-top: 10px">
+            <span class="msg" ><h:outputText value="#{categoryBean.message}"/></span>
+            <c:if test="#{ categoryBean.message ne null}">
+                <h:form>
+                    <h:commandButton action="#{categoryBean.clearMessage()}" value="Clear Message"/>
+                </h:form>
+            </c:if>
+        </div>
+        <div align="center">
+            
+            <c:if test="#{categoryBean.c.categoryid le null or categoryBean.c.categoryid le 0 }">
+            <h:form>
+                <h1><h:outputText value="Create"/></h1>
+                <table border="5" align="center" width="30%">
+                    <tr>
+                        <th colspan="2" align="center">Add Category</th>
+                    </tr>
+                    <tr>
+                        <th><h:outputLabel value="Categoryname:" for="categoryname" /></th>
+                        <td><h:inputText id="categoryname" value="#{categoryBean.c.categoryname}" title="Categoryname" required="true" requiredMessage="The Categoryname field is required."/></td>
+                    </tr>
+                    <tr>
+                        <th colspan="2" align="center">
+                            <h:commandButton id="add" action="#{ categoryBean.addCategory() }" value="Submit"/>
+                        </th>
+                    </tr>
+                </table>
+            </h:form>
+            </c:if>
+            <c:if test="#{ categoryBean.c.categoryid gt 0}">
+            <h:form>
+                <h1><h:outputText value="Edit"/></h1>
+                <table border="5" align="center" width="30%">
+                    <tr>
+                        <th colspan="2" align="center">Edit Category</th>
+                    </tr>
+                    <tr>
+                        <th><h:outputLabel value="Categoryname:" for="categoryname" /></th>
+                        <td><h:inputText id="categoryname" value="#{categoryBean.c.categoryname}" title="Categoryname" required="true" requiredMessage="The Categoryname field is required."/></td>
+                    </tr>
+                    <tr>
+                        <th colspan="2" align="center">
+                            <h:inputHidden id="categoryid" value="#{ categoryBean.c.categoryid }"/>
+                            <h:commandButton id="edit" action="#{ categoryBean.editCategory() }" value="Edit"/>
+                        </th>
+                    </tr>
+                </table>
+            </h:form>
+            </c:if>
+        </div>
+    </h:body>
+</html>
+

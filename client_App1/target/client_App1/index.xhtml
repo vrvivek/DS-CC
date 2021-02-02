@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            Select condition 
+            <h:selectOneMenu value="#{ customerBean.condition }" required="">
+                <f:selectItem itemLabel="Greater" itemValue="Greater" />                
+                <f:selectItem itemLabel="Less" itemValue="Less" />
+                <f:selectItem itemLabel="Greater Equal" itemValue="Greater Equal" />
+                <f:selectItem itemLabel="Less Equal" itemValue="Less Equal" />
+                <f:selectItem itemLabel="Equal" itemValue="Equal" />
+            </h:selectOneMenu>
+            Rating :-  <h:inputText id="rating" value="${customerBean.rating}" required=""/>
+            <h:commandButton action="#{customerBean.customerMasterRating()}" value="Submit"/>
+        </h:form>
+        <f:view>
+            <h:form>
+                <h1><h:outputText value="List"/></h1>
+                <h:dataTable value="#{customerBean.customerMasters}" var="item">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="CustomerId"/>
+                        </f:facet>
+                        <h:outputText value="#{item.customerId}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Email"/>
+                        </f:facet>
+                        <h:outputText value="#{item.email}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Name"/>
+                        </f:facet>
+                        <h:outputText value="#{item.name}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Rating"/>
+                        </f:facet>
+                        <h:outputText value="#{item.rating}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Address"/>
+                        </f:facet>
+                        <h:outputText value="#{item.address}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Phone"/>
+                        </f:facet>
+                        <h:outputText value="#{item.phone}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+

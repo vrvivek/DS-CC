@@ -1,0 +1,12 @@
+com\mycompany\servicesapp\entity\Category_.class
+com\mycompany\servicesapp\config\BootStrap.class
+com\mycompany\servicesapp\entity\Product.class
+com\mycompany\servicesapp\service\TestService.class
+com\mycompany\servicesapp\config\CrossOriginResourceSharingFilter.class
+com\mycompany\servicesapp\config\Producers.class
+com\mycompany\servicesapp\service\HealthCheckService.class
+com\mycompany\servicesapp\entity\User_.class
+com\mycompany\servicesapp\client\testClient.class
+com\mycompany\servicesapp\entity\Product_.class
+com\mycompany\servicesapp\entity\Category.class
+com\mycompany\servicesapp\entity\User.class

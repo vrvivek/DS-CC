@@ -1,0 +1,8 @@
+com\mycompany\client_app1\config\BootStrap.class
+com\mycompany\client_app1\bean\CustomerBean.class
+com\mycompany\client_app1\config\CrossOriginResourceSharingFilter.class
+com\mycompany\client_app1\service\HealthCheckService.class
+com\mycompany\client_app1\client\customerClient.class
+com\mycompany\client_app1\config\Producers.class
+com\mycompany\client_app1\service\ExampleService.class
+com\mycompany\client_app1\entity\CustomerMaster.class
