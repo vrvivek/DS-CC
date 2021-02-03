@@ -161,3 +161,11 @@ root
 	
 Password
 root
+
+
+pip install pipwin
+pipwin install numpy
+pipwin install pandas
+pipwin install matplotlib
+Pip install notebook
+jupyter notebook
